@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 선택할 옵션의 수가 굉장히 많을 때 -->
+    <label for="">살고있는 지역은?</label>
+    <select name="" id="">
+      <option value="02">서울</option>
+      <option value="051">부산</option>
+      <option value="055">경상남도</option>
+      <option value="064">제주도</option>
+    </select>
+
+    <!-- 작은 데이터에서, select vs radio -->
+    <br />
+    <div>
+      <select name="" id="">
+        <option value="male">남자</option>
+        <option value="female">여자</option>
+      </select>
+    </div>
+    <div>
+      <input type="radio" name="rdo_sex" id="male" />
+      <label for="male">남자</label>
+      <input type="radio" name="rdo_sex" id="female" />
+      <label for="female">여자</label>
+    </div>
+
+    <!-- 여러줄 입력 -->
+    <div>
+      <textarea name="" id="" style="width: 80%" rows="20"></textarea>
+    </div>
+
+    <!-- 그룹화 -->
+    <div>
+      <fieldset>
+        <legend>기본정보</legend>
+        <div>
+          <label for="name">이름</label>
+          <input type="text" id="name" />
+        </div>
+        <div>
+          <label for="tel">연락처</label>
+          <input type="tel" id="tel" />
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>학력정보</legend>
+        <div>
+          <label for="univ">대학교</label>
+          <input type="text" id="univ" />
+        </div>
+        <div>
+          <label for="year">졸업년도</label>
+          <input type="text" id="year" />
+        </div>
+      </fieldset>
+    </div>
+
+    <!-- 리스트 제공 및 선택 기능 (중복을 편리하게 처리!) -->
+    <div>
+      <input list="browsers" id="browser1" />
+      <datalist id="browsers">
+        <option value="Internet Explorer">Internet Explorer</option>
+        <option value="firefox">firefox</option>
+        <option value="Chrome">Chrome</option>
+        <option value="Safari">Safari</option>
+        <option value="Naver">Naver</option>
+      </datalist>
+    </div>
+    <div>
+      <input list="browsers" id="browser2" />
+    </div>
+    <div>
+      <input list="browsers" id="browser3" />
+    </div>
+  </body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <input type="text" name="" id="" value="abcc" />
+    </div>
+    <!-- readonly vs disabled : 둘 다 수정 불가, 읽기모드 -->
+    <!-- readonly : form 태그 활용하여 submit 버튼 만들어 저장 시, value 값을 전송 할 수 있음 -->
+    <!-- disabled : 전송되지 않음 -->
+    <div>
+      <input type="text" name="" id="" value="ABC" readonly />
+    </div>
+    <div>
+      <input type="text" name="" id="" value="ABC" disabled />
+    </div>
+
+    <div>
+      <input type="text" name="" id="" value="" maxlength="8" />
+    </div>
+    <div>
+      <input
+        type="tel"
+        name=""
+        id=""
+        placeholder="하이픈 없이 숫자만 입력 예) 01012345678"
+        style="width: 100%"
+      />
+    </div>
+
+    <!-- 입력 필수로 지정하기 -->
+    <div>
+      <form action="">
+        <label for="userId">아이디</label>
+        <input
+          type="text"
+          name=""
+          id="userId"
+          required
+          autocomplete="on"
+          autofocus
+        />
+
+        <label for="pw">비밀번호</label>
+        <input type="password" name="" id="pw" required />
+
+        <button type="submit">저장</button>
+      </form>
+    </div>
+
+    <!-- 자동완성 : name에 적힌 속성 중에서 캐시에 남아있는 정보로 자동완성 -->
+    <!-- autocomplete을 위해 사용되는 표준 name 값
+     1. name : 사람 전체 이름
+     2. email : 이메일 주소
+     3. username : 사용자 계정
+     4. new-password : 새로운 비밀번호
+     5. current-password : 사용자의 현재 비밀번호
+     6. one-time-code : 사용자를 인증할 때 사용하는 1회성 코드 
+     7. organization-title : 직위
+     8. organization : 회사, 조직명
+     9. country : 국가 코드
+    10. country-name : 국가명
+    11. postal-code : 우편번호
+    12. address-level1 : 첫번째 행정구역, (한국의 경우 특별시/광역시/도)
+    13. address-level2 : 두번째 행정구역, (한국의 경우 시/구)
+    14. address-level3 : 세번재 행정구역
+    15. address-level4 : 네번째 행정구역
+    16. street-address : 도로주소
+        등등..
+    -->
+    <div>
+      <input type="text" name="email" id="" autocomplete="on" />
+    </div>
+    <div>
+      <input type="tel" name="phone" id="" autocomplete="on" />
+    </div>
+  </body>
+</html>

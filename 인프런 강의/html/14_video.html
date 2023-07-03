@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- controsl : 비디오 재생, 멈춤, 음성 등의 조정을 위한 UI -->
+    <!-- autoplay : 자동실행 -->
+    <!-- muted : 음소거 -->
+    <!-- loop : 반복 -->
+    <!-- poster : 썸네일 이미지(대표이미지) -->
+    <!-- preload : auto, metadata, none
+        auto : 서버에서 영상을 미리 자동 저장, 시청할 확률이 매우 높고, 중요한 영상
+        metadata : 영상을 다운로드 하지 않고, 영상 관련된 메타데이터만 가져옴
+        none : 영상을 다운로드 하지 않고, 사용자가 영상을 바로 보지 않을 확률이 높음. 최소한의 트래픽 유지
+     -->
+    <video
+      src="./media/temp.mp4"
+      width="320px"
+      loop
+      controls
+      autoplay
+      muted
+      poster="img/troye.jpg"
+      preload="none"
+    ></video>
+
+    <!-- 자막 넣기 : track 태그 -->
+    <br />
+    <video src="./media/temp.mp4" width="320px" controls>
+      <track src="" kind="subtitles" srclang="en" label="영어(english)" />
+    </video>
+  </body>
+</html>

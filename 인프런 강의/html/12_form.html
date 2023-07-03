@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- action : 데이터를 전송할 주소 -->
+    <!-- method : 데이터를 전송할 방법 
+    get 
+        : url에 전송하는 데이터가 붙음 
+        -> 전송하는 데이터가 url에 노출(사용자가 볼 수 있음)
+        -> 보안에 취약
+        -> 주로, 페이지 주소를 "공유"해야 할 때
+        url에 데이터를 붙여서 전송하므로, 전송할 수 있는 데이터 크기에 제약이 있음
+
+    post
+        : url에 전송하는 데이터가 붙지 않음
+        -> 사용자가 볼 수 없음
+        -> 조금 더 안정적
+        전송할 수 있는 데이터 크기 제약 없음
+
+    결국, 전송하는 데이터는 확인 가능함(ex. 개발자 도구)
+     => 암호화하는 게 좋음(https 프로토콜 처럼)
+    cf) https : secure 추가, http : secure 지정 X
+
+    -->
+    <!-- target : 데이터를 전송할 창
+    _self : 자기 자신의 창
+    _blank : 새로운 탭 생성
+    _parent : 바로 위의 iframe
+    _top : 조상 iframe
+    -->
+
+    <!-- novalidate : form 태그 안의 input 요소의 정확성 체크 X -->
+    <form action="전송할 서버 주소" method="get" target="_self" novalidate>
+      <div>
+        <label for="name">이름</label>
+        <input type="text" name="name" id="name" autocomplete="on" />
+      </div>
+
+      <div>
+        <label for="tel">전화번호</label>
+        <input type="tel" name="tel" id="tel" />
+      </div>
+
+      <div>
+        <label for="email">이메일</label>
+        <input type="email" name="email" id="email" />
+      </div>
+
+      <!-- <button type="submit" formnovalidate="formnovalidate">저장</button> -->
+      <button type="submit">저장</button>
+    </form>
+  </body>
+</html>
