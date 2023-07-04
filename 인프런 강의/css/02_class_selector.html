@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <!-- 클래스 선택자 '.' -->
+    <!-- . 뒤에 있는 클래스 명과 동일한 클래스를 가지는 태그에만 적용 -->
+    <style>
+      .color-red {
+        color: red;
+      }
+
+      .color-blue {
+        color: blue;
+      }
+
+      .color-primary {
+        color: green;
+        height: 100px;
+      }
+
+      .bg-aqua {
+        background-color: aqua;
+      }
+
+      .box {
+        color: white;
+        background-color: royalblue;
+      }
+
+      /* main color */
+      /* secondary color */
+      /* info */
+      /* danger */
+    </style>
+  </head>
+  <body>
+    <!-- 글로벌 속성 class 활용 -->
+    <p>red color</p>
+    <p class="color-red">red color with class</p>
+    <p class="color-blue">blue color with class</p>
+    <p class="color-primary bg-aqua">main color</p>
+    <p class="bg-aqua">background color is aqua</p>
+    <p class="box">white color with royalblue background</p>
+  </body>
+</html>
