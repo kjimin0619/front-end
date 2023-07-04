@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* 가상 클래스 선택자 ':': 앞으로 생성이 예상되는 클래스에 적용 */
+      a {
+        text-decoration: none;
+      }
+
+      /* a 태그 중, hover(마우스가 위에 올라간 순간)에만 적용 */
+      a:hover {
+        text-decoration: underline;
+        color: blue;
+      }
+
+      /* a 태그 중, 방문한 적이 없는 경우에만 적용 */
+      a:link {
+        color: red;
+      }
+
+      /* a 태그 중, 방문한 적이 있는 링크 */
+      /* a:visited {
+        color: green;
+      } */
+
+      button:hover {
+        background-color: red;
+      }
+
+      input:focus {
+        border: 3px solid red;
+      }
+
+      table,
+      th,
+      td {
+        border: 2px solid black;
+        border-collapse: collapse;
+      }
+
+      table {
+        width: 100%;
+      }
+      /* table의 짝수 행마다 다른 색깔 부여하기 */
+      /* 파라미터로 even(짝수), odd(홀수) 로 입력해도 됨! */
+      tbody > tr:nth-child(2n) {
+        background-color: greenyellow;
+      }
+    </style>
+  </head>
+  <body>
+    <a href="https://naver.com">naver</a>
+    <a href="https://google.com">google</a>
+    <a href="https://sdfsd.com">fake-site</a>
+
+    <button>조회</button>
+    <br />
+    <input type="text" name="" id="" />
+    <br />
+    <table>
+      <thead>
+        <tr>
+          <th>name</th>
+          <th>tel</th>
+          <th>email</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>jimin</th>
+          <th>010-3333-3333</th>
+          <th>kim@naver.com</th>
+        </tr>
+        <tr>
+          <th>suzy</th>
+          <th>010-3444-3333</th>
+          <th>park@naver.com</th>
+        </tr>
+        <tr>
+          <th>minho</th>
+          <th>010-5555-3333</th>
+          <th>yoon&naver.com</th>
+        </tr>
+        <tr>
+          <th>jimsu</th>
+          <th>010-5366-6333</th>
+          <th>yoon&naver.com</th>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>

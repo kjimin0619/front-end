@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* 속성 선택자 "[]" */
+      /* input(태그명)이면서 type 속성이 text인 것에 적용 */
+      .box > input[type="text"] {
+        border: 2px solid red;
+      }
+      /* name 속성이 email인 것에 적용 */
+      [name="email"] {
+        border: 2px solid blue;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="box">
+      <input type="text" name="" id="" />
+      <input type="email" name="email" id="" />
+      <input type="date" name="" id="" />
+      <input type="text" name="" id="" />
+    </div>
+    <input type="text" name="" id="" />
+    <input type="email" name="email" id="" />
+    <input type="date" name="" id="" />
+  </body>
+</html>
