@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <style>
+      /* internal css */
+      .table {
+        border: 1px solid black;
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      .table tr th,
+      .table tr td {
+        border: 1px solid black;
+        border-collapse: collapse;
+      }
+
+      .striped-table tbody tr:nth-child(odd) {
+        background-color: greenyellow;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- css 적용 방법 -->
+    <!-- 1. 인라인 스타일 방법 : 시작 태그에 style 속성을 통해 직접 지정-->
+    <a href="" style="text-decoration: none">somtheing url</a>
+
+    <!-- 2. internal css : <head> 태그 안에 <style> 태그에 스타일을 지정 -->
+    <!-- 3. external css : 별도의 css 파일을 만들고 <head> 태그 안에 css 파일을 삽입해서 사용 -->
+    <table class="table">
+      <thead>
+        <tr>
+          <th>name</th>
+          <th>tel</th>
+          <th>email</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>kim</td>
+          <td>001</td>
+          <td>a@naver.com</td>
+        </tr>
+        <tr>
+          <td>kim</td>
+          <td>001</td>
+          <td>a@naver.com</td>
+        </tr>
+        <tr>
+          <td>kim</td>
+          <td>001</td>
+          <td>a@naver.com</td>
+        </tr>
+        <tr>
+          <td>kim</td>
+          <td>001</td>
+          <td>a@naver.com</td>
+        </tr>
+      </tbody>
+    </table>
+    <br />
+    <table class="table striped-table">
+      <thead>
+        <tr>
+          <th>name</th>
+          <th>tel</th>
+          <th>email</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>kim</td>
+          <td>001</td>
+          <td>a@naver.com</td>
+        </tr>
+        <tr>
+          <td>kim</td>
+          <td>001</td>
+          <td>a@naver.com</td>
+        </tr>
+        <tr>
+          <td>kim</td>
+          <td>001</td>
+          <td>a@naver.com</td>
+        </tr>
+        <tr>
+          <td>kim</td>
+          <td>001</td>
+          <td>a@naver.com</td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- 브라우저의 기본폰트 5가지 -->
+    <!-- 
+    1. serif
+    2. sans-serif
+    3. monospace
+    4. cursive
+    5. fantasy
+   -->
+    <style>
+      .font1 {
+        font-family: "Courier New", Courier, monospace;
+      }
+
+      .font2 {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      .italic {
+        font-style: italic;
+      }
+
+      .oblique {
+        font-style: oblique;
+      }
+
+      /*  폰트 굵기 */
+    </style>
+  </head>
+
+  <body>
+    <!-- 글꼴 스타일링 -->
+    <h1>basic font</h1>
+    <h1 style="font-family: serif">serif font</h1>
+    <h1 style="font-family: fantasy">fantasy font</h1>
+    <h1 style="font-family: monospace">monospace font</h1>
+
+    <h1 style="font-family: courier">courier font</h1>
+    <h1 style="font-family: Verdana">vernada font</h1>
+
+    <p class="font1">
+      font1 : 현재 브라우저에 Courier New가 있다면, Courier New가 적용. 없다면
+      Courier, monospace가 적용됨
+    </p>
+
+    <p class="font2">
+      font2 : 현재 브라우저에 Arial이 있다면 Arial 적용. 없다면 Helvetica,
+      sans-serif 적용
+    </p>
+
+    <p class="italic">italic</p>
+    <p class="oblique">oblique</p>
+
+    <!-- 폰트 굵기 
+    normal : 일반 폰트(숫자로 400과 동일)
+    bold : 굵게(700)
+    bolder : 상대적인 값
+    lighter : 상대적인 값
+    -->
+    <p style="font-weight: normal">폰트 굵기</p>
+    <p style="font-weight: 400">폰트 굵기</p>
+    <p style="font-weight: bold">폰트 굵기</p>
+    <p style="font-weight: 700">폰트 굵기</p>
+
+    <!-- bolder -->
+    <div style="font-weight: 100">
+      <p>일반</p>
+      <p style="font-weight: bolder">부모가 100일때 bolder는 400</p>
+    </div>
+    <div style="font-weight: 200">
+      <p>일반</p>
+      <p style="font-weight: bolder">부모가 200일때도 bolder는 400</p>
+    </div>
+    <div style="font-weight: 300">
+      <p>일반</p>
+      <p style="font-weight: bolder">부모가 300일때도 bolder는 400</p>
+    </div>
+    <div style="font-weight: 400">
+      <p>일반</p>
+      <p style="font-weight: bolder">부모가 400일때 bolder는 700</p>
+    </div>
+    <div style="font-weight: 600">
+      <p>일반</p>
+      <p style="font-weight: bolder">부모가 600 이상일때 bolder는 900</p>
+    </div>
+
+    <!-- lighter -->
+    <div style="font-weight: 100">
+      <p style="font-weight: lighter">부모가 100일때 lighter는 100</p>
+    </div>
+    <div style="font-weight: 200">
+      <p style="font-weight: lighter">부모가 200일때 lighter는 100</p>
+    </div>
+    <div style="font-weight: 500">
+      <p style="font-weight: lighter">부모가 500일때 lighter는 100</p>
+    </div>
+    <div style="font-weight: 600">
+      <p style="font-weight: lighter">부모가 600일때 lighter는 400</p>
+    </div>
+    <div style="font-weight: 700">
+      <p style="font-weight: lighter">부모가 700일때 lighter는 400</p>
+    </div>
+    <div style="font-weight: 800">
+      <p style="font-weight: lighter">부모가 800일때 lighter는 700</p>
+    </div>
+    <div style="font-weight: 900">
+      <p style="font-weight: lighter">부모가 900일때 lighter는 700</p>
+    </div>
+
+    <!-- 폰트 크기 -->
+    <!-- 
+        절댓값 : xx-small, x-small, small, medium, large, x-large, xx-large
+        상댓값 : larger, smaller
+        길이값 : em(부모 요소의 폰트 크기 기준), rem(루트 요소의 폰트 크기 기준)
+        px, pt(1pt = 72인치)
+        퍼센트
+
+        대부분의 브라우저는 폰트 크기의 기본값으로 12pt == 16px == 1em == 100%
+     -->
+    <p style="font-size: 10px">font-size = 10px</p>
+    <p style="font-size: 8pt">font-size = 8pt</p>
+
+    <!-- ** em : 부모기준!  
+        부모가 없는 경우에 1em이라 지정하면 12pt임
+        그러나 부모가 있으면 em의 기준은 부모가 됨! 
+        ex) 부모가 18px이고 자식은 0.5em라면, 자식은 (=9px) -->
+  </body>
+</html>

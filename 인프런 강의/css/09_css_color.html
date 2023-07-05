@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- CSS 색상 적용 -->
+    <!-- 1. 색상명에 해당하는 키워드 사용 -->
+    <h1 style="background-color: blue">blue background</h1>
+    <p style="color: orange">orange word</p>
+
+    <!-- 2. 색상값 사용 -->
+    <!-- rgb 0 ~ 255 -->
+    <h1 style="color: rgb(255, 0, 0)">red color</h1>
+    <h1 style="color: rgb(246, 113, 246)">pink color</h1>
+
+    <!-- rgba (투명도 추가. 0 ~ 1 사이의 값)-->
+    <h1 style="color: rgba(255, 0, 0, 0.5)">red color</h1>
+
+    <!-- 3. HEX 색상값 : 16진수 표기법 
+    r,g,b 각각 2자리씩 차지-->
+    <!-- 0 : hex '00' , 255 : hex 'FF' -->
+    <h1 style="color: #ff0000">red</h1>
+    <h1 style="color: #00ff00">green</h1>
+    <h1 style="color: #0000ff">blue</h1>
+    <h1 style="color: #000000">black</h1>
+    <h1 style="color: #5488df">what color?</h1>
+
+    <!-- 4. HSL 값 -->
+    <!-- Hue(색조), Saturation(채도), Lightness(밝기) 로 구성-->
+    <!-- 색조 : 0 ~ 360. 360은 빨간색, 120은 초록색, 240은 파란색 -->
+    <!-- 채도 : 0~100%. 0%은 회색음영 -->
+    <!-- 밝기 : 0 ~ 100%, 100%는 가장 밝은 값 -->
+    <h1 style="color: hsl(128, 57%, 52%)">what color?</h1>
+
+    <!-- HSLA -->
+    <h1 style="background-color: hsla(9, 100%, 64%, 0.3)">what color?</h1>
+  </body>
+</html>
