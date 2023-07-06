@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div {
+        border: 3px solid red;
+        width: 50px;
+        height: 50px;
+        margin: 10px;
+      }
+      /* border : border-width, border-style, border-color */
+
+      /* border -> border-top, border-right, border-bottom, border-left */
+      /* border: 5px -> 4면 모두 5px */
+      /* border: 5px 10px -> top bottom 5px, right left 10px */
+      /* border: 5px 10px 7px-> top 5px, right left 10px, bottom 7px*/
+      .dashed {
+        border-style: dashed;
+      }
+
+      .dotted {
+        border-style: dotted;
+      }
+
+      .solid {
+        border-style: solid;
+      }
+
+      .double {
+        border-style: double;
+      }
+
+      .groove {
+        border-style: groove;
+      }
+
+      .ridge {
+        border-style: ridge;
+      }
+
+      .inset {
+        border-style: inset;
+      }
+
+      .outset {
+        border-style: outset;
+      }
+
+      /* 두께 */
+      .thick {
+        border-width: thick;
+      }
+
+      .thin {
+        border-width: thin;
+      }
+
+      .medium {
+        border-width: medium;
+      }
+
+      /* 모서리 */
+      .radius {
+        border-radius: 15px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="dashed">dashed</div>
+    <div class="dashed thick">dashed thick</div>
+    <div class="dotted">dotted</div>
+    <div class="solid">solid</div>
+    <div class="solid thick">solid and thick</div>
+    <div class="solid medium">solid and medium</div>
+    <div class="solid thin">solid and thin</div>
+    <div class="solid radius">solid and radius</div>
+
+    <div class="double">double</div>
+
+    <!-- groove(ridge) : 테두리가 파인(튀어나온)  것처럼  -->
+    <div class="groove">groove</div>
+    <div class="ridge">ridge</div>
+
+    <!-- inset(outset) : 요소가 파인(튀어나온)  것처럼  -->
+    <div class="inset">inset</div>
+    <div class="outset">outset</div>
+  </body>
+</html>
