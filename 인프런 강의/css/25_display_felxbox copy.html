@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      .container {
+        display: flex;
+
+        /* 아이템 배치 */
+        /* 왼쪽 -> 오른쪽 */
+        /* flex-direction: row; */
+
+        /* 위 -> 아래 */
+        flex-direction: column;
+
+        /* 오른쪽 -> 왼쪽 */
+        flex-direction: row-reverse;
+
+        /* 아래 -> 위 */
+        flex-direction: column-reverse;
+
+        border: 3px dotted black;
+      }
+
+      .item {
+        background-color: greenyellow;
+        border: 2px solid blue;
+        width: 150px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- fliexbox
+    flex direction
+        flexbox에서 주축은 flex-direction 속성을 사용해서 정의할 수 있고, 다음과 같은 4개의 값을 가질 수 있다.
+        4개의 값에 따라 컨테이너에 담긴 아이템이 배치되는 방향과 순서가 달라진다.
+
+        row : 아이템이 배치되는 방향이 왼쪽 -> 오른쪽
+        row-reverse : 오른쪽 -> 왼쪽
+        colum : 상단 -> 하단
+        colum-reverse : 하단 -> 상단
+    -->
+    <div class="container">
+      <div class="item">A</div>
+      <div class="item">B</div>
+      <div class="item">C</div>
+    </div>
+  </body>
+</html>

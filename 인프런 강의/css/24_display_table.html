@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      .display-table {
+        display: table; /* <table> 요소처럼 표현*/
+        width: 100%;
+      }
+
+      .display-tb-header {
+        display: table-header-group; /* <thead> 요소처럼 표현*/
+      }
+
+      .display-tb-body {
+        display: table-row-group; /* <tbody> 요소처럼 표현*/
+      }
+
+      .display-tb-row {
+        display: table-row; /* <tr> 요소처럼 표현*/
+      }
+
+      .display-tb-cell {
+        display: table-cell; /* <td>, <th> 요소처럼 표현*/
+      }
+    </style>
+  </head>
+  <body>
+    <!-- CSS display
+    display 프로퍼티 : 요소의 외부 display 유형을 블록과 인라인 중 어느 방식으로 처리할 지 결정
+        block : 요소의 크기와 상관없이 한 라인 전체를 차지하고 줄바꿈이 일어남. ex) p, h1 태그
+        inline : 요소의 크기 만큼만 너비를 차지하고 줄바꿈이 일어나지 않음. ex) a, image 태그
+    
+    <display 유형을 설정하는 속성값>
+    table : <table> 태그처럼 자식 요소를 배치
+    flex : flexbox 모델에 따라 자식 요소를 배치 (자주사용)
+    grid : 그리드 레이아웃을 사용해서 자식 요소를 배치
+    -->
+
+    <div class="display-table">
+      <div class="display-tb-header">
+        <div class="display-tb-row">
+          <div class="display-tb-cell">a</div>
+          <div class="display-tb-cell">b</div>
+          <div class="display-tb-cell">c</div>
+        </div>
+      </div>
+      <div class="display-tb-body">
+        <div class="display-tb-row">
+          <div class="display-tb-cell">a1</div>
+          <div class="display-tb-cell">b1</div>
+          <div class="display-tb-cell">c1</div>
+        </div>
+        <div class="display-tb-row">
+          <div class="display-tb-cell">a3</div>
+          <div class="display-tb-cell">b4</div>
+          <div class="display-tb-cell">c3</div>
+        </div>
+        <div class="display-tb-row">
+          <div class="display-tb-cell">a2</div>
+          <div class="display-tb-cell">b2</div>
+          <div class="display-tb-cell">c2</div>
+        </div>
+      </div>
+    </div>
+    <br />
+    <table>
+      <thead>
+        <tr>
+          <th>a</th>
+          <th>b</th>
+          <th>c</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>a1</td>
+          <td>b1</td>
+          <td>c1</td>
+        </tr>
+        <tr>
+          <td>a1</td>
+          <td>b1</td>
+          <td>c1</td>
+        </tr>
+        <tr>
+          <td>a1</td>
+          <td>b1</td>
+          <td>c1</td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      .container {
+        display: flex;
+
+        /* 아이템 배치 : 왼쪽 -> 오른쪽 */
+        flex-direction: row;
+        border: 3px dotted black;
+
+        /* Flex Wrap : 배치 자동조절 - 컨테이너 보다 큰 아이템들 배치할 때 */
+        /* row 기준이지만, 너비가 초과되면 자연스럽게 줄바꿈을 수행 */
+        flex-wrap: wrap;
+      }
+
+      .item {
+        background-color: greenyellow;
+        border: 2px solid blue;
+        width: 200px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="item">A</div>
+      <div class="item">B</div>
+      <div class="item">C</div>
+      <div class="item">C</div>
+      <div class="item">E</div>
+    </div>
+  </body>
+</html>

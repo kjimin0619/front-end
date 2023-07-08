@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      .container {
+        display: flex;
+
+        /* 아이템 배치 */
+        /* 왼쪽 -> 오른쪽 */
+        flex-direction: row;
+
+        border: 3px dotted black;
+
+        /* 정렬 */
+        /* flex-start : 왼쪽 정렬 or 위쪽 정렬 (주축의 시작점에서 정렬 시작) */
+        justify-content: flex-start;
+
+        /* flex-end :  오른쪽 or 아래쪽 정렬(주축의 끝 점으로 정렬) */
+        justify-content: flex-end;
+
+        /* center : 가운데 정렬 */
+        justify-content: center;
+
+        /* 등등.. */
+      }
+
+      .item {
+        background-color: greenyellow;
+        border: 2px solid blue;
+        width: 30px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="item">A</div>
+      <div class="item">B</div>
+      <div class="item">C</div>
+    </div>
+  </body>
+</html>
