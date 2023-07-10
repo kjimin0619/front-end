@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <!--
+    media query 미디어쿼리 
+    스크린 크기별로 별도의 css를 적용해서, 사용자의 스크린 크기에 최적화된 스타일을 적용
+    
+    - 미디어 타입 : 어떤 미디어를 위한 것인지 브라우저에게 알려주기 위한 타입.
+                    screen, print, all 등 정의됨
+    - 미디어-지정-규칙 : css를 적용하기 위한 조건문에 해당하는 표현식 정의
+    - css-정의 : 미디어-지정-규칙을 통과하는 경우 적용할 css 규칙 정의
+
+    @media 미디어-타입 and (미디어-지정-규칙) {
+        /* css 정의 */
+    }
+    -->
+    <style>
+      body {
+        background-color: darkgoldenrod;
+      }
+
+      /* 미디어 쿼리 */
+      /* max-, min- 접두사 사용 가능 */
+      @media screen and (max-width: 1000px) {
+        body {
+          background-color: green;
+        }
+      }
+
+      @media screen and (max-width: 600px) {
+        body {
+          background-color: darkblue;
+        }
+      }
+
+      /* 가로모드 세로모드 구별할 때 
+          landscape : 가로모드
+          portrait : 세로모드 */
+      @media (orientation: landscape) {
+        body {
+          background-color: red;
+        }
+      }
+    </style>
+  </head>
+  <body></body>
+</html>

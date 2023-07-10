@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      * {
+        /* 콘텐츠 박스(헤더 메뉴 등등)들의 사이징 기준 정의 : 기준의 border  */
+        box-sizing: border-box;
+      }
+
+      html{
+        /* 부드러운 스크롤 효과 */
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+      }
+
+      .header {
+        padding: 60px;
+        text-align: center;
+        background-color: #f9fc63;
+        color: black;
+      }
+
+      .navbar {
+        display: flex;
+        flex-direction: row;
+        background-color: #333;
+        justify-content: center;
+        position: sticky;
+        
+        /* 부모 컨테이너 위치에 고정 */
+        top: 0;
+      }
+
+      .navbar a {
+        color: white;
+        padding: 14px 20px;
+        text-decoration: none;
+        text-align: center;
+      }
+
+      .navbar a:hover {
+        background-color: #f9fc63;
+        color: black;
+      }
+
+      .row {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+
+      .side {
+        /* 너비는 30%만 차지 */
+        /* flex: 30%; */
+        width: 30%;
+        background-color: #f1f1f1;
+        padding: 20px;
+      }
+
+      .fakeimg {
+        background-color: #aaa;
+        width: 100%;
+        padding: 20px;
+      }
+
+      .main {
+        flex: 70%;
+        background-color: white;
+        padding: 20px;
+      }
+
+      .footer {
+        padding: 10px;
+        text-align: center;
+        background-color: #ddd;
+      }
+
+      @media screen and (max-width: 768px) {
+        .row, .navbar {
+            flex-direction: column;
+        }
+      }
+
+    </style>
+  </head>
+  <body>
+    <!-- 시멘틱 태그 적용버전 -->
+    <header class="header">
+      <h1>WHO AM I?</h1>
+    </header>
+    <nav class="navbar">
+      <!-- 특정 오브젝트의 위치로 이동시키기 : #id  -->
+      <a href="#project1">menu1 </a>
+      <a href="#project2">menu2 </a>
+      <a href="#project3">menu3 </a>
+      <a href="#project4">menu4 </a>
+      <a href="#project5">menu5 </a>
+    </nav>
+    <div class="row">
+      <!-- 왼쪽 좁은 영역의 콘텐츠 -->
+      <aside class="side">
+        <div>
+          <h2>About</h2>
+          <div class="fakeimg" style="height: 200px">Image</div>
+          <p>저는 대학교 3학년입니다. 지금은 방학이라 쉬고있습니다.</p>
+          <h3>Skills</h3>
+          <p>python, pytorch, unity, maya, java</p>
+          <div class="fakeimg" style="height: 60px">Image</div>
+          <br />
+          <div class="fakeimg" style="height: 60px">Image</div>
+          <br />
+          <div class="fakeimg" style="height: 60px">Image</div>
+        </div>
+      </aside>
+
+      <!-- 오른쪽 넓은 영역의 콘텐츠 -->
+      <main class="main">
+        <section  id="project1">
+          <h2>프로젝트 1</h2>
+          <h5>2022년 3월</h5>
+          <div class="fakeimg" style="height: 200px">Image</div>
+          <p>
+            이 프로젝트의 주제는 뭐시기 입니다. 이 프로젝트에서 제 역할은
+            개발자였습니다. 메롱
+          </p>
+        </section>
+        <section id="project2">
+          <h2>프로젝트 2</h2>
+          <h5>2022년 3월</h5>
+          <div class="fakeimg" style="height: 200px">Image</div>
+          <p>
+            이 프로젝트의 주제는 뭐시기 입니다. 이 프로젝트에서 제 역할은
+            개발자였습니다. 메롱
+          </p>
+        </section>
+        <section id="project3">
+          <h2>프로젝트 3</h2>
+          <h5>2022년 3월</h5>
+          <div class="fakeimg" style="height: 200px">Image</div>
+          <p>
+            이 프로젝트의 주제는 뭐시기 입니다. 이 프로젝트에서 제 역할은
+            개발자였습니다. 메롱
+          </p>
+        </section>
+        <section  id="project4">
+          <h2>프로젝트 4</h2>
+          <h5>2022년 3월</h5>
+          <div class="fakeimg" style="height: 200px">Image</div>
+          <p>
+            이 프로젝트의 주제는 뭐시기 입니다. 이 프로젝트에서 제 역할은
+            개발자였습니다. 메롱
+          </p>
+        </section>
+        <section id="project5">
+          <h2>프로젝트 5</h2>
+          <h5>2022년 3월</h5>
+          <div class="fakeimg" style="height: 200px">Image</div>
+          <p>
+            이 프로젝트의 주제는 뭐시기 입니다. 이 프로젝트에서 제 역할은
+            개발자였습니다. 메롱
+          </p>
+        </section>
+      </main>
+    </div>
+    <footer class="footer">
+      <h4>Copyright jiminKim 2023</h2>
+    </footer>
+  </body>
+</html>
