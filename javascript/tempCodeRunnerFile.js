@@ -1,1 +1,0 @@
-taskB(a_res, (b_res) => {
