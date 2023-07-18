@@ -1,6 +1,6 @@
 import { useState, useRef } from "react";
 
-const DiaryEditor = () => {
+const DiaryEditor = ({ onCreate }) => {
   // html의 dom 요소에 접근
   const authorInput = useRef();
   const contentInput = useRef();
@@ -14,8 +14,8 @@ const DiaryEditor = () => {
 
   // 이벤트 핸들러 onChange 합치기
   const handleChangeState = (e) => {
-    console.log(e.target.name); // 변경된 영역의 이름
-    console.log(e.target.value); // 변경된 영역의 내용
+    // console.log(e.target.name); // 변경된 영역의 이름
+    // console.log(e.target.value); // 변경된 영역의 내용
 
     setState({
       ...state,
@@ -23,6 +23,7 @@ const DiaryEditor = () => {
     });
   };
 
+  // 일기 저장
   const handleSubmit = (e) => {
     if (state.author.length < 1) {
       // alert("작성자는 최소 1글자 이상 입력해주세요");
@@ -37,8 +38,15 @@ const DiaryEditor = () => {
       contentInput.current.focus();
       return;
     }
-    console.log(state);
+
+    onCreate(state.author, state.content, state.emotion);
     alert("저장 성공");
+    // 초기화
+    setState({
+      author: "",
+      content: "",
+      emotion: 1,
+    });
   };
 
   // 작성자, 일기 본문, 감정점수

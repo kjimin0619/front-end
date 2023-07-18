@@ -1,36 +1,55 @@
 import "./App.css";
 import DiaryEditor from "./DiaryEditor";
 import DiaryList from "./DiaryList";
+import { useState, useRef } from "react";
 
-// 사용자가 입력한 일기 리스트
-const dummyList = [
-  {
-    id: 1,
-    author: "김지민",
-    content: "hello this is jimin",
-    emotion: 5,
-    created_date: new Date().getTime(), // 시간 객체
-  },
-  {
-    id: 2,
-    author: "홍길동",
-    content: "hello this is jimin123",
-    emotion: 2,
-    created_date: new Date().getTime(), // 시간 객체
-  },
-  {
-    id: 3,
-    author: "아무개",
-    content: "hello this is jimin2345",
-    emotion: 4,
-    created_date: new Date().getTime(), // 시간 객체
-  },
-];
 function App() {
+  // 하위 레벨의 DiaryEditor와 DiartList가 사용할 state 관리
+  const [data, setData] = useState([]);
+  const dataId = useRef(0);
+
+  // 아이템 생성
+  const onCreate = (author, content, emotion) => {
+    const created_date = new Date().getTime();
+    const newItem = {
+      author,
+      content,
+      emotion,
+      created_date,
+      id: dataId.current,
+    };
+    dataId.current += 1; // id 증가
+
+    // 최근에 생성된 아이템이 제일 위로 올라오도록
+    setData([newItem, ...data]);
+  };
+
+  // 아이템 삭제
+  const onRemove = (targetId) => {
+    // console.log(`${targetId}번째 일기가 삭제되었습니다.`);
+    const newDiaryList = data.filter((it) => it.id !== targetId);
+
+    setData(newDiaryList);
+  };
+
+  // 아이템 수정
+  const onEdit = (targetId, newContent) => {
+    setData(
+      // 수정이 완료된 배열 반환
+      data.map((it) =>
+        it.id === targetId ? { ...it, content: newContent } : it
+      )
+    );
+  };
+
   return (
     <div className="App">
-      <DiaryEditor></DiaryEditor>
-      <DiaryList diaryList={dummyList}></DiaryList>
+      <DiaryEditor onCreate={onCreate}></DiaryEditor>
+      <DiaryList
+        diaryList={data}
+        onRemove={onRemove}
+        onEdit={onEdit}
+      ></DiaryList>
     </div>
   );
 }
