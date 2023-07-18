@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import OddEvenResult from "./OddEvenResult";
-const Counter = ({ initValue }) => {
+const Counter = (props) => {
   console.log("Counter 호출");
-  console.log("부모로부터 받은 변수 : ", initValue);
+  console.log("부모로부터 받은 변수 : ", props.initValue);
 
   // counter: 기본값 0에서 시작하는 상태
 
@@ -12,7 +12,7 @@ const Counter = ({ initValue }) => {
   // 이 setCount는 count의 상태를 변화시키는 함수가 됨
   // 인자로 전달한 0은 count의 초기값
   // 리액트에서는 컴포넌트가 가진 state가 바뀌면 rerender 됨
-  const [count, setCount] = useState(initValue);
+  const [count, setCount] = useState(props.initValue);
   const onIncrease = () => {
     setCount(count + 1);
   };
@@ -32,6 +32,6 @@ const Counter = ({ initValue }) => {
 
 //  전달받지 못한 props 인 경우
 Counter.defaultProps = {
-  initValue: 0,
+  props.initValue: 0,
 };
 export default Counter;
