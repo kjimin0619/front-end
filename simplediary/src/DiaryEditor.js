@@ -41,7 +41,7 @@ const DiaryEditor = ({ onCreate }) => {
 
     onCreate(state.author, state.content, state.emotion);
     alert("저장 성공");
-    // 초기화
+    // 저장 후 초기화
     setState({
       author: "",
       content: "",
