@@ -1,23 +1,19 @@
-import { useState, useRef } from "react";
-const DiaryItem = ({
-  author,
-  content,
-  created_date,
-  emotion,
-  id,
-  onRemove,
-  onEdit,
-}) => {
+import React, { useState, useRef, useContext } from "react";
+import { DiaryDispatchContext } from "./App";
+// 최적화 : onRemove, onEdit, content
+const DiaryItem = ({ author, content, created_date, emotion, id }) => {
+  const { onRemove, onEdit } = useContext(DiaryDispatchContext);
+
   const [isEdit, setIsEdit] = useState(false);
   const [localContent, setLocalContent] = useState(content);
-  const localContentInput = useRef();
+
+  const localContentInput = useRef(null);
 
   const toggleIsEdit = () => {
     setIsEdit(!isEdit);
   };
 
   const handleRemove = () => {
-    console.log(id);
     if (window.confirm(`${id + 1}번째 일기를 삭제하시겠습니까?`)) {
       onRemove(id);
     }
@@ -34,7 +30,7 @@ const DiaryItem = ({
       return;
     }
 
-    if (window.confirm(`${id + 1}번째 일기를 수정하겠습니까?`)) {
+    if (window.confirm(`${id}번째 일기를 수정하겠습니까?`)) {
       onEdit(id, localContent);
       toggleIsEdit();
     }
@@ -68,7 +64,7 @@ const DiaryItem = ({
       {isEdit ? (
         <>
           <button onClick={handleQuitEdit}>수정취소</button>
-          <button onClick={handleEdit}>수정완료</button>
+          <button onClick={handleEdit}>저장하기</button>
         </>
       ) : (
         <>
@@ -80,4 +76,4 @@ const DiaryItem = ({
   );
 };
 
-export default DiaryItem;
+export default React.memo(DiaryItem);

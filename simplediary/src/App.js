@@ -1,12 +1,50 @@
 import "./App.css";
 import DiaryEditor from "./DiaryEditor";
 import DiaryList from "./DiaryList";
-import { useState, useRef, useEffect, useMemo } from "react";
+import React, {
+  useRef,
+  useEffect,
+  useMemo,
+  useCallback,
+  useReducer,
+} from "react";
 // https://jsonplaceholder.typicode.com/comments
+
+// 상태 변화 처리 함수 : reducer
+const reducer = (state, action) => {
+  switch (action.type) {
+    case "INIT": {
+      return action.data; // 새로운 state
+    }
+    case "CREATE": {
+      const created_date = new Date().getTime();
+      const newItem = {
+        ...action.data,
+        created_date,
+      };
+
+      return [newItem, ...state];
+    }
+    case "REMOVE": {
+      return state.filter((it) => it.id !== action.targetId);
+    }
+    case "EDIT": {
+      return state.map((it) =>
+        it.id === action.targetId ? { ...it, content: action.newContent } : it
+      );
+    }
+    default:
+      return state;
+  }
+};
+
+export const DiaryStateContext = React.createContext(); // diaryList 공급만을 위한 컨택스트
+export const DiaryDispatchContext = React.createContext(); // 메서드 공급 컨택스트
 
 function App() {
   // 하위 레벨의 DiaryEditor와 DiartList가 사용할 state 관리
-  const [data, setData] = useState([]);
+  const [data, dispatch] = useReducer(reducer, []);
+
   const dataId = useRef(0);
 
   // api 호출
@@ -25,7 +63,8 @@ function App() {
         id: dataId.current++,
       };
     });
-    setData(initData);
+
+    dispatch({ type: "INIT", data: initData });
   };
 
   // App 컴포넌트가 마운트되자마자 api 호출해오도록
@@ -34,38 +73,28 @@ function App() {
   }, []);
 
   // 아이템 생성
-  const onCreate = (author, content, emotion) => {
-    const created_date = new Date().getTime();
-    const newItem = {
-      author,
-      content,
-      emotion,
-      created_date,
-      id: dataId.current,
-    };
+  const onCreate = useCallback((author, content, emotion) => {
+    dispatch({
+      type: "CREATE",
+      data: { author, content, emotion, id: dataId.current },
+    });
     dataId.current += 1; // id 증가
-
-    // 최근에 생성된 아이템이 제일 위로 올라오도록
-    setData([newItem, ...data]);
-  };
+  }, []);
 
   // 아이템 삭제
-  const onRemove = (targetId) => {
-    // console.log(`${targetId}번째 일기가 삭제되었습니다.`);
-    const newDiaryList = data.filter((it) => it.id !== targetId);
-
-    setData(newDiaryList);
-  };
+  const onRemove = useCallback((targetId) => {
+    dispatch({ type: "REMOVE", targetId });
+  }, []);
 
   // 아이템 수정
-  const onEdit = (targetId, newContent) => {
-    setData(
-      // 수정이 완료된 배열 반환
-      data.map((it) =>
-        it.id === targetId ? { ...it, content: newContent } : it
-      )
-    );
-  };
+  const onEdit = useCallback((targetId, newContent) => {
+    dispatch({ type: "EDIT", targetId, newContent });
+  }, []);
+
+  // 전달할 세 메서드 묶기 & 재생성 방지
+  const memoizedDispatches = useMemo(() => {
+    return { onCreate, onRemove, onEdit };
+  }, []);
 
   // 연산 최적화
   // 함수와 그 리턴값의 연산을 최적화 하고 싶다면 useMemo 훅 사용
@@ -79,19 +108,19 @@ function App() {
 
   const { goodCnt, badCnt, goodRatio } = getDiaryAnalysis;
 
+  // 데이터 공급과정
   return (
-    <div className="App">
-      <DiaryEditor onCreate={onCreate}></DiaryEditor>
-      <div>전체 일기 : {data.length}</div>
-      <div>기분 좋은 일기 개수: {goodCnt}</div>
-      <div>기분 나쁜 일기 개수: {badCnt}</div>
-      <div>기분 좋은 일기 비율 : {goodRatio}%</div>
-      <DiaryList
-        diaryList={data}
-        onRemove={onRemove}
-        onEdit={onEdit}
-      ></DiaryList>
-    </div>
+    <DiaryStateContext.Provider value={data}>
+      <DiaryDispatchContext.Provider value={memoizedDispatches}>
+        <div className="App">
+          <DiaryEditor></DiaryEditor>
+          <div>기분 좋은 일기 개수: {goodCnt}</div>
+          <div>기분 나쁜 일기 개수: {badCnt}</div>
+          <div>기분 좋은 일기 비율 : {goodRatio}%</div>
+          <DiaryList></DiaryList>
+        </div>
+      </DiaryDispatchContext.Provider>
+    </DiaryStateContext.Provider>
   );
 }
 

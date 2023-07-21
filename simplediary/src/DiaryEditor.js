@@ -1,6 +1,13 @@
-import { useState, useRef } from "react";
-
-const DiaryEditor = ({ onCreate }) => {
+import React, { useState, useRef, useContext } from "react";
+import { DiaryDispatchContext } from "./App";
+// Diary Editor 최적화
+// Diary Editor는 부모 컴포넌트로부터 전달받은
+// onCreate가 재생성될 때마다 렌더링 됨
+// 따라서 불필요한 렌더링이 반복됨
+// onCreate가 재생성되지 않아야만 최적화 할 수 있음
+// memo가 아닌 useCallback을 활용
+const DiaryEditor = () => {
+  const { onCreate } = useContext(DiaryDispatchContext);
   // html의 dom 요소에 접근
   const authorInput = useRef();
   const contentInput = useRef();
@@ -95,4 +102,4 @@ const DiaryEditor = ({ onCreate }) => {
   );
 };
 
-export default DiaryEditor;
+export default React.memo(DiaryEditor);
