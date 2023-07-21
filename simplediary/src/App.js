@@ -1,8 +1,7 @@
 import "./App.css";
 import DiaryEditor from "./DiaryEditor";
 import DiaryList from "./DiaryList";
-import { useState, useRef, useEffect } from "react";
-import Lifecycle from "./Lifecycle";
+import { useState, useRef, useEffect, useMemo } from "react";
 // https://jsonplaceholder.typicode.com/comments
 
 function App() {
@@ -68,10 +67,25 @@ function App() {
     );
   };
 
+  // 연산 최적화
+  // 함수와 그 리턴값의 연산을 최적화 하고 싶다면 useMemo 훅 사용
+  // 전달인자의 [] 안의 값이 변화할 때만 콜백함수(전달인자)가 다시 수행됨
+  const getDiaryAnalysis = useMemo(() => {
+    const goodCnt = data.filter((it) => it.emotion > 3).length;
+    const badCnt = data.length - goodCnt;
+    const goodRatio = (goodCnt / data.length) * 100;
+    return { goodCnt, badCnt, goodRatio };
+  }, [data.length]);
+
+  const { goodCnt, badCnt, goodRatio } = getDiaryAnalysis;
+
   return (
     <div className="App">
-      {/* <Lifecycle></Lifecycle> */}
       <DiaryEditor onCreate={onCreate}></DiaryEditor>
+      <div>전체 일기 : {data.length}</div>
+      <div>기분 좋은 일기 개수: {goodCnt}</div>
+      <div>기분 나쁜 일기 개수: {badCnt}</div>
+      <div>기분 좋은 일기 비율 : {goodRatio}%</div>
       <DiaryList
         diaryList={data}
         onRemove={onRemove}

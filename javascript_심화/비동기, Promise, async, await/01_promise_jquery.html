@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>비동기</title>
+  </head>
+  <body>
+    <script
+      src="https://code.jquery.com/jquery-3.7.0.min.js"
+      integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      console.log("main stream start");
+      // 파일 읽기 처리 (Jqueary)
+      var a, b;
+      function fileA() {
+        var pr = new Promise((resolve, reject) => {
+          $.ajax("a.txt")
+            .done((data) => {
+              resolve(data);
+            })
+            .fail(() => {
+              reject("error 1");
+            });
+        });
+        return pr;
+      }
+
+      function fileB() {
+        var pr = new Promise((resolve, reject) => {
+          $.ajax("b.txt").done((data) => {
+            resolve(data);
+          });
+        });
+
+        return pr;
+      }
+
+      fileA()
+        .then((data) => {
+          a = Number(data); // 숫자로 변환
+          console.log(data);
+          return fileB();
+        })
+        .then((data) => {
+          b = Number(data); // 숫자로 변환
+          console.log(data);
+
+          console.log("sum : ", a + b);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+      console.log("main stream finish");
+    </script>
+  </body>
+</html>
