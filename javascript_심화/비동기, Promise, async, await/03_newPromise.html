@@ -1,0 +1,39 @@
+<script>
+  function job1() {
+    //  promise 리턴
+    return new Promise(function (resolve, reject) {
+      setTimeout(() => reject("error"), 2000);
+    });
+  }
+
+  function job2() {
+    //  promise 리턴
+    return new Promise(function (resolve, reject) {
+      setTimeout(() => resolve("job2 resolved ok!"), 2000);
+    });
+  }
+
+  // nested 방식
+  //   job1().then((data) => {
+  //     console.log(data);
+  //     job2().then((data) => {
+  //       console.log(data);
+  //     });
+  //   });
+
+  // chainig 방식
+  job1()
+    .then((data) => {
+      console.log("data1", data);
+      return job2();
+    })
+    .catch((reason) => {
+      console.log("reason", reason);
+      return Promise.reject();
+    })
+    .then((data) => {
+      console.log("data2", data);
+    });
+
+  console.log("this is end");
+</script>

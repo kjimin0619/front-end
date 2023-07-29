@@ -1,0 +1,22 @@
+<script>
+  function timer(time) {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => resolve(time), time);
+    });
+  }
+
+  console.time("promise.all");
+  // all : promise 중 가장 늦게 끝나는 작업이 끝났을 때 then 호출
+  Promise.all([timer(1000), timer(2000), timer(3000)]).then((result) => {
+    console.log("result >> ", result);
+    console.timeEnd("promise.all");
+  });
+
+  console.time("promise.race");
+  // race : promise 중 가장 먼저 끝나는 작업이 끝났을 때 then 호출
+  // 가장 빨리 끝나는 작업의 결과를 받아서 후속 작업 처리
+  Promise.race([timer(1000), timer(2000), timer(3000)]).then((result) => {
+    console.log("result >> ", result);
+    console.timeEnd("promise.race");
+  });
+</script>
