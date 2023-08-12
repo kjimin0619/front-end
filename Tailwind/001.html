@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <!--- margin, padding, font-weight, text-color --->
+
+    <!-- padding -->
+    <div class="text-base text-red-500">padding</div>
+    <div class="text-lg">hello world</div>
+    <div class="text-2xl p-3">hello world</div>
+    <div class="text-2xl pt-3">padding top</div>
+    <div class="text-2xl pl-3">padding left</div>
+    <div class="text-2xl pb-3">padding bottom</div>
+    <div class="text-2xl pr-3">padding right</div>
+    <br />
+
+    <!-- margin -->
+    <div class="text-base text-red-500">margin</div>
+    <div class="text-2xl m-3">margin</div>
+    <div class="text-2xl mt-3 mb-3">margin top and bottom</div>
+    <div class="text-2xl mb-3">margin bottom</div>
+    <div class="text-2xl my-3">margin y axis</div>
+    <div class="text-2xl mx-3">margin x axis</div>
+    <br />
+
+    <!-- ul & li tag test-->
+    <div class="p-5 border-4">
+      <ul class="list-disc">
+        <li>hello world</li>
+        <li>hello world</li>
+        <li>hello world</li>
+        <li>hello world</li>
+        <li>hello world</li>
+      </ul>
+    </div>
+
+    <!-- ul & li 순서없는 -->
+    <div class="p-5 m-5 border-4">
+      <ul class="list-disc">
+        <li>
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laudantium
+          reprehenderit voluptates omnis ex odit eveniet blanditiis voluptatem
+          similique debitis optio. Aspernatur qui asperiores placeat earum,
+          omnis nobis voluptate optio amet.
+        </li>
+        <li>hello world</li>
+      </ul>
+    </div>
+
+    <!-- ul & li 순서있는 -->
+    <div class="p-5 m-5 border-4">
+      <ul class="list-decimal">
+        <li>
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laudantium
+          reprehenderit voluptates omnis ex odit eveniet blanditiis voluptatem
+          similique debitis optio. Aspernatur qui asperiores placeat earum,
+          omnis nobis voluptate optio amet.
+        </li>
+        <li>hello world</li>
+      </ul>
+    </div>
+    <br />
+
+    <!-- border rounded -->
+    <div class="w-32 h-32 bg-red-400"></div>
+    <br />
+
+    <div class="w-32 h-32 bg-red-400 rounded"></div>
+    <br />
+
+    <div class="w-32 h-32 bg-red-400 rounded-2xl"></div>
+    <br />
+
+    <div class="w-32 h-32 bg-red-400 rounded-full"></div>
+    <br />
+
+    <div class="w-32 h-32 bg-red-400"></div>
+    <br />
+
+    <!-- 색상 지정, 폰트 지정 -->
+    <div class="text-[17px]">17px font</div>
+    <div class="text-[20px]">20px font</div>
+    <div class="mt-[20px]">20px font</div>
+    <div class="bg-[#4267B2] text-white">custom background</div>
+  </body>
+</html>
