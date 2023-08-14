@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: red;
+}
+
+@layer utilities {
+  .test {
+    @apply bg-red-200;
+  }
+}

@@ -4,6 +4,10 @@
 
 @layer components {
   .container {
-    @apply w-48 py-2 m-3 px-4 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-300 hover:cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75;
+    @apply w-16 h-16 sm:w-20 sm:h-20 md:w-32 md:h-32 bg-red-200 sm:bg-blue-300 md:bg-green-200;
+  }
+
+  .hide {
+    @apply landscape:hidden;
   }
 }
