@@ -63,6 +63,13 @@
                             type:'DELETE'
                      });
                     " type="button" value="delete"></div>
+                <div><input onclick="
+                store.dispatch({
+                        type:'CHANGE_MODE',
+                        mode:'MODIFY'
+
+                  });
+                " type="button" value="modify"></div>
             `;
       }
 
@@ -118,6 +125,41 @@
             hello everyone
         </article>
           `;
+        } else if (state.mode === "MODIFY") {
+          var i = 0;
+          var aTitle, aDesc;
+          while (i < state.contents.length) {
+            if (state.contents[i].id === state.selected_id) {
+              aTitle = state.contents[i].title;
+              aDesc = state.contents[i].desc;
+              break;
+            }
+            i++;
+          }
+          document.querySelector("#content").innerHTML = `
+          <article>
+            <form onsubmit="
+                event.preventDefault();
+                var _title = this.title.value;
+                var _desc = this.desc.value;
+                store.dispatch({
+                    type:'MODIFY',
+                    title:_title,
+                    desc:_desc
+                })
+            ">
+                <p>
+                    <input type="text" name="title" value = "${aTitle}">
+                </p>
+                <p>
+                    <input type="text" name="desc" value = "${aDesc}">
+                </p>
+                <p>
+                    <input type="submit">
+                </p>
+            </form>
+          </article>
+          `;
         }
       }
 
@@ -161,6 +203,15 @@
           newState.mode = "READ";
         } else if (action.type === "CHANGE_MODE") {
           newState.mode = action.mode;
+        } else if (action.type === "MODIFY") {
+          newState.contents = newState.contents.map((it) => {
+            if (it.id === state.selected_id) {
+              it.title = action.title;
+              it.desc = action.desc;
+            }
+            return it;
+          });
+          newState.mode = "WELCOME";
         }
 
         return newState;
