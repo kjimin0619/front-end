@@ -1,5 +1,3 @@
-import { brotliCompress } from "zlib";
-
 // object
 let user1: object = {
   id: 1,
