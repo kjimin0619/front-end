@@ -21,6 +21,7 @@ type Guest = {
   name: string;
   visitCount: number;
 };
+
 // 각 객체 타입별 tag 프로퍼티가 string literal로 정의되어 있어서
 // 세 타입은 모두 서로소 집합이 됨. 즉 세 타입을 모두 만족하는 객체를 만들어낼 수 없다는 것
 type User = Admin | Member | Guest; // 서로소 union type이 된 User 타입
