@@ -1,4 +1,3 @@
-import { type } from "os";
 /**
  * 접근제어자 access modifier
  * 
@@ -33,7 +32,7 @@ console.log(employeeA); // 변경 사항 적용됨
 
 // private
 // employeeA.name = "박길동"; // 에러 : 클래스 외부에서 프로퍼티에 접근할 수 없음
-// pricate으로 정의된  프로퍼티는 파생 클래스 내부에서도 접근 불가능함
+// private으로 정의된  프로퍼티는 파생 클래스 내부에서도 접근 불가능함
 // 파생클래스 예시
 class ExecutiveOfficer1 extends Employee {
   // 생성자
