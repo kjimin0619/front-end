@@ -23,7 +23,7 @@ let str = func1("String");
 // 반환값의 타입을 가변적으로 지정해주는 방법
 // 타입을 지정하기 위해 타입변수 T 정의
 // 인수의 타입에 따라 타입변수에 저장되는 타입이 달라짐
-function func<T>(value: T): T {
+function func<T>(value: T) {
   return value;
 }
 
